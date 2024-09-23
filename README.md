@@ -1,6 +1,4 @@
-Here's a basic template for your **Travel Booking System** Django project. You can modify the details to better fit your specific project structure and needs.
 
----
 
 # Travel Booking System
 
