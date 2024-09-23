@@ -1,0 +1,19 @@
+<!-- templates/users/travel_option_detail.html -->
+{% extends "base.html" %}
+
+{% block title %}Travel Option Details{% endblock %}
+
+{% block content %}
+<h2>{{ travel_option.get_travel_type_display }} from {{ travel_option.source }} to {{ travel_option.destination }}</h2>
+
+<ul>
+    <li><strong>Source:</strong> {{ travel_option.source }}</li>
+    <li><strong>Destination:</strong> {{ travel_option.destination }}</li>
+    <li><strong>Date and Time:</strong> {{ travel_option.date_time }}</li>
+    <li><strong>Price:</strong> {{ travel_option.price }}</li>
+    <li><strong>Available Seats:</strong> {{ travel_option.available_seats }}</li>
+</ul>
+
+<a href="{% url 'travel_options_list' %}" class="btn btn-primary">Back to Travel Options</a>
+<a href="{% url 'book_travel_option' %}" class="btn btn-primary">BOOK YOUR TICKETS</a>
+{% endblock %}

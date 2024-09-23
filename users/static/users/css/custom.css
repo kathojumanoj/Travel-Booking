@@ -1,0 +1,129 @@
+/* Use Poppins font for headings and text */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8f9fa; /* Soft grey background */
+    color: #333; /* Text color */
+}
+
+h2 {
+    font-weight: 700;
+    color: #212529; /* Dark text */
+}
+
+/* Navbar styling */
+.navbar {
+    background-color: #ffffff;
+    border-bottom: 2px solid #dedede;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar .nav-link {
+    font-weight: 600;
+}
+
+.navbar .btn-outline-primary {
+    border-color: #007bff;
+    color: #007bff;
+    transition: all 0.3s ease;
+}
+
+.navbar .btn-outline-primary:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+.navbar .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    transition: all 0.3s ease;
+}
+
+.navbar .btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+/* Table styling */
+.table {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.table th {
+    background-color: #007bff;
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.table td {
+    font-weight: 500;
+}
+
+.table-hover tbody tr:hover {
+    background-color: #f1f5fa;
+}
+
+/* Form controls */
+.form-control {
+    border-radius: 8px;
+    padding: 12px;
+    border: 1px solid #ced4da;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.25);
+}
+
+.btn {
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    padding: 12px 24px;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(0, 123, 255, 0.25);
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    box-shadow: 0 6px 16px rgba(0, 123, 255, 0.35);
+}
+
+/* Animations */
+.animate__fadeIn {
+    animation-duration: 1.2s;
+}
+
+.card {
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+
+/* Footer styling (optional) */
+footer {
+    background-color: #212529;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+footer a {
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #0056b3;
+}

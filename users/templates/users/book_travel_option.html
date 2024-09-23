@@ -1,0 +1,20 @@
+<!-- templates/users/book_travel_option.html -->
+{% extends "base.html" %}
+
+{% block title %}Book Travel Option{% endblock %}
+
+{% block content %}
+<h2>Book {{ travel_option.get_travel_type_display }} from {{ travel_option.source }} to {{ travel_option.destination }}</h2>
+
+<p>Date and Time: {{ travel_option.date_time }}</p>
+<p>Price per seat: {{ travel_option.price }}</p>
+<p>Available Seats: {{ travel_option.available_seats }}</p>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Book Now</button>
+</form>
+
+<a href="{% url 'travel_options_list' %}" class="btn btn-secondary mt-3">Back to Travel Options</a>
+{% endblock %}

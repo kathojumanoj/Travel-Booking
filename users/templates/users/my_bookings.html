@@ -1,0 +1,74 @@
+<!-- templates/users/my_bookings.html -->
+{% extends "base.html" %}
+
+{% block title %}My Bookings{% endblock %}
+
+{% block content %}
+<h2>My Bookings</h2>
+
+<h3>Upcoming Bookings</h3>
+{% if upcoming_bookings %}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Travel Type</th>
+                <th>Source</th>
+                <th>Destination</th>
+                <th>Date and Time</th>
+                <th>Seats</th>
+                <th>Total Price</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for booking in upcoming_bookings %}
+            <tr>
+                <td>{{ booking.travel_option.get_travel_type_display }}</td>
+                <td>{{ booking.travel_option.source }}</td>
+                <td>{{ booking.travel_option.destination }}</td>
+                <td>{{ booking.travel_option.date_time }}</td>
+                <td>{{ booking.number_of_seats }}</td>
+                <td>{{ booking.total_price }}</td>
+                <td>
+                    <a href="{% url 'cancel_booking' booking.booking_id %}" class="btn btn-danger">Cancel</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <p>No upcoming bookings.</p>
+{% endif %}
+
+<h3>Past Bookings</h3>
+{% if past_bookings %}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Travel Type</th>
+                <th>Source</th>
+                <th>Destination</th>
+                <th>Date and Time</th>
+                <th>Seats</th>
+                <th>Total Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for booking in past_bookings %}
+            <tr>
+                <td>{{ booking.travel_option.get_travel_type_display }}</td>
+                <td>{{ booking.travel_option.source }}</td>
+                <td>{{ booking.travel_option.destination }}</td>
+                <td>{{ booking.travel_option.date_time }}</td>
+                <td>{{ booking.number_of_seats }}</td>
+                <td>{{ booking.total_price }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <p>No past bookings.</p>
+{% endif %}
+
+<a href="{% url 'travel_options_list' %}" class="btn btn-primary mt-3">Browse More Travel Options</a>
+{% endblock %}

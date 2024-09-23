@@ -1,0 +1,51 @@
+<!-- templates/home.html -->
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="jumbotron text-center">
+    <h1>Welcome to the Travel Booking System</h1>
+    <p>Book your tickets for flights, trains, and buses with ease.</p>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body text-center">
+                <h4 class="card-title">View Travel Options</h4>
+                <p class="card-text">Browse available flights, trains, and buses to your favorite destinations.</p>
+                <a  href="{% url 'travel_options_list' %}" class="btn btn-primary">Search</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body text-center">
+                <h4 class="card-title">Manage Bookings</h4>
+                <p class="card-text">Check your bookings and manage your travel plans.</p>
+                <a href="{% url 'my_bookings' %}" class="btn btn-primary">My Bookings</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body text-center">
+                <h4 class="card-title">User Account</h4>
+                {% if user.is_authenticated %}
+                    <p class="card-text">Update your profile information or log out.</p>
+                    <a href="{% url 'profile' %}" class="btn btn-secondary">Profile</a>
+                    <form action="{% url 'logout' %}" method="POST" class="d-inline">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-danger">Logout</button>
+                    </form>
+                {% else %}
+                    <p class="card-text">Login or create an account to access all features.</p>
+                    <a href="{% url 'login' %}" class="btn btn-secondary">Login</a>
+                    <a href="{% url 'register' %}" class="btn btn-primary">Register</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

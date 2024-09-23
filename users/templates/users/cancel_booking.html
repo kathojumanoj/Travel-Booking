@@ -1,0 +1,16 @@
+<!-- templates/users/cancel_booking.html -->
+{% extends "base.html" %}
+
+{% block title %}Cancel Booking{% endblock %}
+
+{% block content %}
+<h2>Cancel Booking</h2>
+
+<p>Are you sure you want to cancel your booking for {{ booking.travel_option.get_travel_type_display }} from {{ booking.travel_option.source }} to {{ booking.travel_option.destination }}?</p>
+
+<form method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Yes, Cancel Booking</button>
+    <a href="{% url 'my_bookings' %}" class="btn btn-secondary">No, Go Back</a>
+</form>
+{% endblock %}

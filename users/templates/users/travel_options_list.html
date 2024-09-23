@@ -1,0 +1,57 @@
+<!-- templates/users/travel_options_list.html -->
+{% extends "base.html" %}
+
+{% block title %}Travel Options{% endblock %}
+
+{% block content %}
+<h2>Available Travel Options</h2>
+
+<!-- Search and Filter Form -->
+<form method="get" class="form-inline mb-4">
+    <div class="form-group mr-2">
+        {{ form.travel_type.label_tag }} {{ form.travel_type }}
+    </div>
+    <div class="form-group mr-2">
+        {{ form.source.label_tag }} {{ form.source }}
+    </div>
+    <div class="form-group mr-2">
+        {{ form.destination.label_tag }} {{ form.destination }}
+    </div>
+    <div class="form-group mr-2">
+        {{ form.date.label_tag }} {{ form.date }}
+    </div>
+    <button type="submit" class="btn btn-primary">Search</button>
+</form>
+
+<!-- Display the Filtered Travel Options -->
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Type</th>
+            <th>Source</th>
+            <th>Destination</th>
+            <th>Date and Time</th>
+            <th>Price</th>
+            <th>Available Seats</th>
+            <th>Book</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for option in travel_options %}
+        <tr>
+            <td>{{ option.get_travel_type_display }}</td>
+            <td>{{ option.source }}</td>
+            <td>{{ option.destination }}</td>
+            <td>{{ option.date_time }}</td>
+            <td>{{ option.price }}</td>
+            <td>{{ option.available_seats }}</td>
+            <td><a href="{% url 'book_travel_option' option.travel_id %}" class="btn btn-success">Book</a></td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="7">No travel options found matching your criteria.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
